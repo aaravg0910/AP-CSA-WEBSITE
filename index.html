@@ -9,11 +9,14 @@
 
 <header id="main-header">
     <h1 class="site-title">Aarav Gupta</h1>
+
     <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="sports.html">Sports</a>
         <a href="projects.html">Projects</a>
     </nav>
+
+    <button id="dark-toggle">🌙</button>
 </header>
 
 <main class="fade-section" id="home" class="home">
@@ -36,6 +39,14 @@ I am a member of my school’s robotics team and varsity badminton team, and I p
 </main>
 
 <footer></footer>
+
+<script>
+const toggle = document.getElementById("dark-toggle");
+toggle.onclick = () => {
+    document.body.classList.toggle("dark");
+    toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
+};
+</script>
 
 </body>
 </html>
