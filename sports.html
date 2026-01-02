@@ -19,8 +19,8 @@
     <button id="dark-toggle">🌙</button>
 </header>
 
-<main class="fade-section">
-    <section class="content-card">
+<main>
+    <section class="content-card scroll-animate">
         <h2>Sports I Play</h2>
         <ul class="sport-list">
             <li>Badminton</li>
@@ -32,7 +32,7 @@
         </ul>
     </section>
 
-    <section class="content-card">
+    <section class="content-card scroll-animate">
         <h2>Main Sport & Achievements</h2>
         <p>My primary sport is badminton. I am a member of the varsity badminton team and have won numerous tournaments for my school, including both varsity-level, local tournaments and  CIF competitions.
         </p>
@@ -43,13 +43,6 @@
 
 <footer></footer>
 
-<script>
-const toggle = document.getElementById("dark-toggle");
-toggle.onclick = () => {
-    document.body.classList.toggle("dark");
-    toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
-};
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
