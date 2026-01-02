@@ -8,7 +8,6 @@ body {
     font-family: "Segoe UI", Arial, sans-serif;
     background: #f5f7fa;
     color: #333;
-    animation: fadeIn 0.8s ease-in-out;
 }
 
 /* DARK MODE */
@@ -37,7 +36,6 @@ body.dark #main-header {
     border-bottom: 4px solid #38bdf8;
     padding: 15px;
     text-align: center;
-    animation: slideDown 0.8s ease-out;
     position: relative;
 }
 
@@ -78,10 +76,6 @@ main {
     padding: 0 15px;
 }
 
-.fade-section {
-    animation: fadeUp 1s ease;
-}
-
 /* Cards */
 .content-card {
     background: white;
@@ -89,7 +83,6 @@ main {
     margin-bottom: 25px;
     border-radius: 14px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    animation: cardFadeUp 0.9s ease forwards;
 }
 
 /* Images */
@@ -129,23 +122,19 @@ footer {
     color: #cbd5e1;
 }
 
-/* Animations */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* SCROLL ANIMATION */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
 }
 
-@keyframes slideDown {
-    from { transform: translateY(-30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+.scroll-animate.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-@keyframes cardFadeUp {
-    from { opacity: 0; transform: translateY(25px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* MOBILE */
+/* Mobile */
 @media (max-width: 600px) {
     .site-title {
         font-size: 22px;
@@ -153,10 +142,5 @@ footer {
 
     .content-card {
         padding: 16px;
-    }
-
-    #dark-toggle {
-        top: 12px;
-        right: 12px;
     }
 }
