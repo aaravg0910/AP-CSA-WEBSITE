@@ -7,41 +7,47 @@
 </head>
 <body>
 
-<header>
-    <h1>Sports</h1>
-    <nav>
+<header id="main-header">
+    <h1 class="site-title">Sports</h1>
+    <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="sports.html">Sports</a>
         <a href="projects.html">Projects</a>
+        <a href="gallery.html">Gallery</a>
     </nav>
 </header>
 
 <main>
-    <div class="card">
-    <h2>Sports I Play</h2>
-    <ul>
-        <li>Badminton</li>
-        <li>Cricket</li>
-        <li>Soccer</li>
-        <li>Volleyball</li>
-        <li>Swimming</li>
-        <li>Table Tennis</li>
-    </ul>
-    </div>
+    <section class="content-card">
+        <h2>Sports I Play</h2>
+        <ul class="sport-list">
+            <li>Badminton</li>
+            <li>Cricket</li>
+            <li>Soccer</li>
+            <li>Volleyball</li>
+            <li>Swimming</li>
+            <li>Table Tennis</li>
+        </ul>
+    </section>
 
-    <h2>Main Sport</h2>
-    <p>
-        My main sport is <strong>Badminton</strong>. I am on the
-        <strong>Badminton Varsity Team</strong> at my school.
-    </p>
+    <section class="content-card">
+        <h2>Main Sport & Achievements</h2>
+        <p>
+            My main sport is <strong>Badminton</strong>. I am on the
+            <strong>Badminton Varsity Team</strong> and have won many tournaments
+            for my school, including varsity and CIF competitions.
+        </p>
 
-    <h2>Achievements</h2>
-    <ul>
-        <li>🏆 Won many badminton tournaments for my school.</li>
-        <li>🏅 Represented my school in varsity-level competitions and CIF. </li>
-    </ul>
+        <div class="image-row">
+            <img src="badminton.png" class="bordered-img sport-img">
+            <img src="robotics.png" class="bordered-img sport-img">
+        </div>
+    </section>
 </main>
 
+<footer>
+    © 2025 Aarav Gupta
+</footer>
 
 </body>
 </html>
