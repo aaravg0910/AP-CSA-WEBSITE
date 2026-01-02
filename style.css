@@ -6,18 +6,39 @@
 
 body {
     font-family: "Segoe UI", Arial, sans-serif;
-    background-color: #f5f7fa;
+    background: #f5f7fa;
     color: #333;
     animation: fadeIn 0.8s ease-in-out;
+}
+
+/* DARK MODE */
+body.dark {
+    background: #020617;
+    color: #e5e7eb;
+}
+
+body.dark .content-card {
+    background: #020617;
+    border: 1px solid #38bdf8;
+}
+
+body.dark .sport-list li {
+    background: #0f172a;
+}
+
+body.dark footer,
+body.dark #main-header {
+    background: #020617;
 }
 
 /* Header */
 #main-header {
     background: #0f172a;
     border-bottom: 4px solid #38bdf8;
-    padding: 15px 0;
+    padding: 15px;
     text-align: center;
     animation: slideDown 0.8s ease-out;
+    position: relative;
 }
 
 .site-title {
@@ -25,43 +46,36 @@ body {
     font-size: 24px;
 }
 
+#dark-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Nav */
 .nav-links {
     margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .nav-links a {
     color: #cbd5e1;
-    margin: 0 15px;
+    margin: 8px 12px;
     text-decoration: none;
     font-weight: 500;
-    position: relative;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: #38bdf8;
-}
-
-.nav-links a::after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    background: #38bdf8;
-    left: 0;
-    bottom: -6px;
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
 }
 
 /* Layout */
 main {
     max-width: 1000px;
-    margin: 40px auto;
-    padding: 0 20px;
+    margin: 30px auto;
+    padding: 0 15px;
 }
 
 .fade-section {
@@ -71,47 +85,32 @@ main {
 /* Cards */
 .content-card {
     background: white;
-    padding: 25px;
-    margin-bottom: 30px;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
     animation: cardFadeUp 0.9s ease forwards;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.content-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 30px rgba(0,0,0,0.12);
 }
 
 /* Images */
 .bordered-img {
     border: 4px solid #38bdf8;
     border-radius: 12px;
-    transition: transform 0.4s ease;
-}
-
-.bordered-img:hover {
-    transform: scale(1.05);
 }
 
 .profile-pic {
-    width: 190px;
-    height: 190px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 20px;
-    animation: popIn 0.9s ease-out;
+    display: block;
+    margin: 0 auto 20px;
 }
 
+.project-img,
 .sport-img {
     width: 100%;
-    margin-top: 20px;
-}
-
-.project-img {
-    width: 100%;
-    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 /* Sports list */
@@ -120,21 +119,12 @@ main {
     padding: 10px;
     margin-bottom: 8px;
     border-radius: 6px;
-    opacity: 0;
-    animation: listFade 0.6s ease forwards;
 }
-
-.sport-list li:nth-child(1) { animation-delay: 0.1s; }
-.sport-list li:nth-child(2) { animation-delay: 0.2s; }
-.sport-list li:nth-child(3) { animation-delay: 0.3s; }
-.sport-list li:nth-child(4) { animation-delay: 0.4s; }
-.sport-list li:nth-child(5) { animation-delay: 0.5s; }
-.sport-list li:nth-child(6) { animation-delay: 0.6s; }
 
 /* Footer */
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 18px;
     background: #0f172a;
     color: #cbd5e1;
 }
@@ -155,20 +145,18 @@ footer {
     to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes popIn {
-    0% { transform: scale(0.8); opacity: 0; }
-    80% { transform: scale(1.05); }
-    100% { transform: scale(1); opacity: 1; }
-}
+/* MOBILE */
+@media (max-width: 600px) {
+    .site-title {
+        font-size: 22px;
+    }
 
-@keyframes listFade {
-    from { transform: translateX(-15px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
+    .content-card {
+        padding: 16px;
+    }
 
-/* Mobile */
-@media (max-width: 768px) {
-    main {
-        margin: 20px auto;
+    #dark-toggle {
+        top: 12px;
+        right: 12px;
     }
 }
