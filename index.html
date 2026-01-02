@@ -19,12 +19,12 @@
     <button id="dark-toggle">🌙</button>
 </header>
 
-<main class="fade-section" id="home" class="home">
-    <section id="profile-section">
+<main>
+    <section id="profile-section" class="scroll-animate">
         <img src="me.png" alt="Picture of Aarav Gupta" class="profile-pic bordered-img">
     </section>
 
-    <section class="content-card">
+    <section class="content-card scroll-animate">
         <h2>About Me</h2>
         <p>
           Hello, my name is Aarav Gupta. I am 15 years old and currently a 10th-grade student at Rancho Bernardo High School. I live in San Diego, California, and I was born in India.
@@ -40,13 +40,6 @@ I am a member of my school’s robotics team and varsity badminton team, and I p
 
 <footer></footer>
 
-<script>
-const toggle = document.getElementById("dark-toggle");
-toggle.onclick = () => {
-    document.body.classList.toggle("dark");
-    toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
-};
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
