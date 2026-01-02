@@ -19,8 +19,8 @@
     <button id="dark-toggle">🌙</button>
 </header>
 
-<main class="fade-section">
-    <section class="content-card project-card">
+<main>
+    <section class="content-card project-card scroll-animate">
         <img src="coding.jpg" alt="Coding" class="project-img bordered-img">
         <h3>Coding Projects</h3>
         <p>
@@ -29,7 +29,7 @@
         </p>
     </section>
 
-    <section class="content-card project-card">
+    <section class="content-card project-card scroll-animate">
         <img src="robotics.jpg" alt="Robotics" class="project-img bordered-img">
         <h3>Electronics & Robotics</h3>
         <p>
@@ -41,13 +41,6 @@
 
 <footer></footer>
 
-<script>
-const toggle = document.getElementById("dark-toggle");
-toggle.onclick = () => {
-    document.body.classList.toggle("dark");
-    toggle.textContent = document.body.classList.contains("dark") ? "☀️" : "🌙";
-};
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
