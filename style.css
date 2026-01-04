@@ -10,7 +10,6 @@ body {
     color: #333;
 }
 
-
 /* DARK MODE */
 body.dark {
     background: #020617;
@@ -49,7 +48,7 @@ body.dark #main-header {
     position: absolute;
     top: 15px;
     right: 15px;
-    background: transparent;
+    background: none;
     border: none;
     font-size: 20px;
     cursor: pointer;
@@ -133,6 +132,12 @@ footer {
 .scroll-animate.show {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* FAILSAFE IF JS BREAKS */
+.no-js .scroll-animate {
+    opacity: 1;
+    transform: none;
 }
 
 /* Mobile */
