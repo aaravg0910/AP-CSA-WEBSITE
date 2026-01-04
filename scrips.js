@@ -1,40 +1,52 @@
-const display = document.getElementById("display");
-const buttons = document.querySelectorAll(".buttons button");
+// Scroll animations
+const elements = document.querySelectorAll(".scroll-animate");
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.15 });
+elements.forEach(el => observer.observe(el));
 
-let expression = "";
+// Calculator Logic
+const display = document.getElementById("calc-display");
+const buttons = document.querySelectorAll(".calc-buttons button");
+
+let current = "";
 
 buttons.forEach(button => {
     button.addEventListener("click", () => {
 
-        const value = button.dataset.value;
+        const val = button.dataset.value;
         const action = button.dataset.action;
 
         if (action === "clear") {
-            expression = "";
+            current = "";
             display.value = "0";
             return;
         }
 
         if (action === "del") {
-            expression = expression.slice(0, -1);
-            display.value = expression || "0";
+            current = current.slice(0, -1);
+            display.value = current || "0";
             return;
         }
 
         if (action === "equals") {
             try {
-                expression = eval(expression).toString();
-                display.value = expression;
+                current = eval(current).toString();
+                display.value = current;
             } catch {
                 display.value = "ERROR";
-                expression = "";
+                current = "";
             }
             return;
         }
 
-        if (value) {
-            expression += value;
-            display.value = expression;
+        if (val) {
+            current += val;
+            display.value = current;
         }
     });
 });
