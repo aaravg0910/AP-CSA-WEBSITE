@@ -9,7 +9,6 @@
 
 <header id="main-header">
     <h1 class="site-title">Projects</h1>
-
     <nav class="nav-links">
         <a href="index.html">Home</a>
         <a href="sports.html">Sports</a>
@@ -19,19 +18,52 @@
 
 <main>
     <section class="content-card scroll-animate">
-        <img src="coding.jpg" alt="Coding" class="project-img bordered-img">
+        <img src="coding.jpg" class="project-img bordered-img">
         <h3>Coding Projects</h3>
+        <p>Websites, Python games, and advanced Java projects.</p>
+    </section>
+
+    <!-- JAVA CALCULATOR PROJECT -->
+    <section class="content-card scroll-animate">
+        <h3>Java Calculator (Web Version)</h3>
         <p>
-            Websites, calculators, Python games, and advanced Java Robocode bots.
+            A calculator originally built in Java using Swing, converted
+            into a JavaScript web application so it can run in the browser.
         </p>
+
+        <div class="calculator">
+            <input type="text" id="calc-display" readonly>
+
+            <div class="calc-buttons">
+                <button onclick="press('7')">7</button>
+                <button onclick="press('8')">8</button>
+                <button onclick="press('9')">9</button>
+                <button onclick="press('/')">÷</button>
+
+                <button onclick="press('4')">4</button>
+                <button onclick="press('5')">5</button>
+                <button onclick="press('6')">6</button>
+                <button onclick="press('*')">×</button>
+
+                <button onclick="press('1')">1</button>
+                <button onclick="press('2')">2</button>
+                <button onclick="press('3')">3</button>
+                <button onclick="press('-')">−</button>
+
+                <button onclick="press('0')">0</button>
+                <button onclick="press('.')">.</button>
+                <button onclick="calculate()">=</button>
+                <button onclick="press('+')">+</button>
+
+                <button class="clear" onclick="clearCalc()">C</button>
+            </div>
+        </div>
     </section>
 
     <section class="content-card scroll-animate">
-        <img src="robotics.jpg" alt="Robotics" class="project-img bordered-img">
+        <img src="robotics.jpg" class="project-img bordered-img">
         <h3>Electronics & Robotics</h3>
-        <p>
-            Arduino, Raspberry Pi, and NodeMCU projects.
-        </p>
+        <p>Arduino, Raspberry Pi, and NodeMCU projects.</p>
     </section>
 </main>
 
