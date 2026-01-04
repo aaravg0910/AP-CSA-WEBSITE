@@ -28,14 +28,12 @@ body {
     margin-top: 10px;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
 }
 
 .nav-links a {
     color: #cbd5e1;
     margin: 8px 12px;
     text-decoration: none;
-    font-weight: 500;
 }
 
 /* Layout */
@@ -64,7 +62,6 @@ main {
     width: 160px;
     height: 160px;
     border-radius: 50%;
-    object-fit: cover;
     display: block;
     margin: 0 auto 20px;
 }
@@ -83,14 +80,6 @@ main {
     border-radius: 6px;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 18px;
-    background: #0f172a;
-    color: #cbd5e1;
-}
-
 /* Scroll animation */
 .scroll-animate {
     opacity: 0;
@@ -103,19 +92,47 @@ footer {
     transform: translateY(0);
 }
 
-/* JS fail-safe */
 .no-js .scroll-animate {
     opacity: 1;
     transform: none;
 }
 
-/* Mobile */
-@media (max-width: 600px) {
-    .site-title {
-        font-size: 22px;
-    }
+/* Calculator */
+.calculator {
+    max-width: 260px;
+    margin: 20px auto;
+    background: #111827;
+    padding: 15px;
+    border-radius: 16px;
+}
 
-    .content-card {
-        padding: 16px;
-    }
+#calc-display {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 12px;
+    font-size: 20px;
+    text-align: right;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+}
+
+.calc-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.calc-buttons button {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.calc-buttons .clear {
+    grid-column: span 4;
+    background: #f97316;
+    color: white;
 }
