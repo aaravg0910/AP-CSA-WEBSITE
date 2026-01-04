@@ -10,48 +10,17 @@ body {
     color: #333;
 }
 
-/* DARK MODE */
-body.dark {
-    background: #020617;
-    color: #e5e7eb;
-}
-
-body.dark .content-card {
-    background: #020617;
-    border: 1px solid #38bdf8;
-}
-
-body.dark .sport-list li {
-    background: #0f172a;
-}
-
-body.dark footer,
-body.dark #main-header {
-    background: #020617;
-}
-
 /* Header */
 #main-header {
     background: #0f172a;
     border-bottom: 4px solid #38bdf8;
     padding: 15px;
     text-align: center;
-    position: relative;
 }
 
 .site-title {
     color: white;
     font-size: 24px;
-}
-
-#dark-toggle {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
 }
 
 /* Nav */
@@ -122,7 +91,7 @@ footer {
     color: #cbd5e1;
 }
 
-/* SCROLL ANIMATION */
+/* Scroll animation */
 .scroll-animate {
     opacity: 0;
     transform: translateY(40px);
@@ -134,7 +103,7 @@ footer {
     transform: translateY(0);
 }
 
-/* FAILSAFE IF JS BREAKS */
+/* JS fail-safe */
 .no-js .scroll-animate {
     opacity: 1;
     transform: none;
