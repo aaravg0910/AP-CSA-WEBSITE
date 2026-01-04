@@ -31,33 +31,34 @@
             into a JavaScript web application so it can run in the browser.
         </p>
 
-        <div class="calculator">
-            <input type="text" id="calc-display" readonly>
+       <div class="calculator">
+        <input type="text" id="calc-display" readonly>
 
             <div class="calc-buttons">
-                <button onclick="press('7')">7</button>
-                <button onclick="press('8')">8</button>
-                <button onclick="press('9')">9</button>
-                <button onclick="press('/')">÷</button>
+                <button data-val="7">7</button>
+                <button data-val="8">8</button>
+                <button data-val="9">9</button>
+                <button class="op" data-val="/">÷</button>
+    
+                <button data-val="4">4</button>
+                <button data-val="5">5</button>
+                <button data-val="6">6</button>
+                <button class="op" data-val="*">×</button>
 
-                <button onclick="press('4')">4</button>
-                <button onclick="press('5')">5</button>
-                <button onclick="press('6')">6</button>
-                <button onclick="press('*')">×</button>
+                <button data-val="1">1</button>
+                <button data-val="2">2</button>
+                <button data-val="3">3</button>
+                <button class="op" data-val="-">−</button>
 
-                <button onclick="press('1')">1</button>
-                <button onclick="press('2')">2</button>
-                <button onclick="press('3')">3</button>
-                <button onclick="press('-')">−</button>
+                <button data-val="0">0</button>
+                <button data-val=".">.</button>
+                <button class="op" data-val="+">+</button>
+                <button class="equals">=</button>
 
-                <button onclick="press('0')">0</button>
-                <button onclick="press('.')">.</button>
-                <button onclick="calculate()">=</button>
-                <button onclick="press('+')">+</button>
-
-                <button class="clear" onclick="clearCalc()">C</button>
-            </div>
+                <button class="clear">C</button>
         </div>
+    </div>
+
     </section>
 
     <section class="content-card scroll-animate">
