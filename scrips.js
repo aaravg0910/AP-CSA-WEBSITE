@@ -1,52 +1,23 @@
+// Ensure content is visible if JS loads
+document.body.classList.remove("no-js");
+
 // Scroll animations
 const elements = document.querySelectorAll(".scroll-animate");
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
-    });
-}, { threshold: 0.15 });
-elements.forEach(el => observer.observe(el));
 
-// Calculator Logic
-const display = document.getElementById("calc-display");
-const buttons = document.querySelectorAll(".calc-buttons button");
+if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        },
+        { threshold: 0.15 }
+    );
 
-let current = "";
-
-buttons.forEach(button => {
-    button.addEventListener("click", () => {
-
-        const val = button.dataset.value;
-        const action = button.dataset.action;
-
-        if (action === "clear") {
-            current = "";
-            display.value = "0";
-            return;
-        }
-
-        if (action === "del") {
-            current = current.slice(0, -1);
-            display.value = current || "0";
-            return;
-        }
-
-        if (action === "equals") {
-            try {
-                current = eval(current).toString();
-                display.value = current;
-            } catch {
-                display.value = "ERROR";
-                current = "";
-            }
-            return;
-        }
-
-        if (val) {
-            current += val;
-            display.value = current;
-        }
-    });
-});
+    elements.forEach(el => observer.observe(el));
+} else {
+    // Fallback for older browsers
+    elements.forEach(el => el.classList.add("show"));
+}
