@@ -1,6 +1,6 @@
 document.body.classList.remove("no-js");
 
-// Scroll animations
+/* ===== Scroll Animations ===== */
 const elements = document.querySelectorAll(".scroll-animate");
 
 const observer = new IntersectionObserver(entries => {
@@ -13,26 +13,35 @@ const observer = new IntersectionObserver(entries => {
 
 elements.forEach(el => observer.observe(el));
 
-// Calculator logic
-let expression = "";
+/* ===== Calculator Logic ===== */
 
-function press(val) {
-    expression += val;
-    document.getElementById("calc-display").value = expression;
-}
+const display = document.getElementById("calc-display");
+const buttons = document.querySelectorAll(".calc-buttons button");
 
-function clearCalc() {
-    expression = "";
-    document.getElementById("calc-display").value = "";
-}
+let current = "";
 
-function calculate() {
-    try {
-        const result = Function("return " + expression)();
-        expression = result.toString();
-        document.getElementById("calc-display").value = expression;
-    } catch {
-        document.getElementById("calc-display").value = "Error";
-        expression = "";
-    }
-}
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+
+        if (btn.classList.contains("clear")) {
+            current = "";
+            display.value = "";
+            return;
+        }
+
+        if (btn.classList.contains("equals")) {
+            try {
+                current = eval(current).toString();
+                display.value = current;
+            } catch {
+                display.value = "ERROR";
+                current = "";
+            }
+            return;
+        }
+
+        const value = btn.getAttribute("data-val");
+        current += value;
+        display.value = current;
+    });
+});
