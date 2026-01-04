@@ -1,23 +1,38 @@
-// Ensure content is visible if JS loads
 document.body.classList.remove("no-js");
 
 // Scroll animations
 const elements = document.querySelectorAll(".scroll-animate");
 
-if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-        entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("show");
-                }
-            });
-        },
-        { threshold: 0.15 }
-    );
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.15 });
 
-    elements.forEach(el => observer.observe(el));
-} else {
-    // Fallback for older browsers
-    elements.forEach(el => el.classList.add("show"));
+elements.forEach(el => observer.observe(el));
+
+// Calculator logic
+let expression = "";
+
+function press(val) {
+    expression += val;
+    document.getElementById("calc-display").value = expression;
+}
+
+function clearCalc() {
+    expression = "";
+    document.getElementById("calc-display").value = "";
+}
+
+function calculate() {
+    try {
+        const result = Function("return " + expression)();
+        expression = result.toString();
+        document.getElementById("calc-display").value = expression;
+    } catch {
+        document.getElementById("calc-display").value = "Error";
+        expression = "";
+    }
 }
