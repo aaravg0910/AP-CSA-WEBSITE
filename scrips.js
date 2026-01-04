@@ -1,47 +1,40 @@
-document.body.classList.remove("no-js");
+const display = document.getElementById("display");
+const buttons = document.querySelectorAll(".buttons button");
 
-/* ===== Scroll Animations ===== */
-const elements = document.querySelectorAll(".scroll-animate");
+let expression = "";
 
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
-    });
-}, { threshold: 0.15 });
+buttons.forEach(button => {
+    button.addEventListener("click", () => {
 
-elements.forEach(el => observer.observe(el));
+        const value = button.dataset.value;
+        const action = button.dataset.action;
 
-/* ===== Calculator Logic ===== */
-
-const display = document.getElementById("calc-display");
-const buttons = document.querySelectorAll(".calc-buttons button");
-
-let current = "";
-
-buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-
-        if (btn.classList.contains("clear")) {
-            current = "";
-            display.value = "";
+        if (action === "clear") {
+            expression = "";
+            display.value = "0";
             return;
         }
 
-        if (btn.classList.contains("equals")) {
+        if (action === "del") {
+            expression = expression.slice(0, -1);
+            display.value = expression || "0";
+            return;
+        }
+
+        if (action === "equals") {
             try {
-                current = eval(current).toString();
-                display.value = current;
+                expression = eval(expression).toString();
+                display.value = expression;
             } catch {
                 display.value = "ERROR";
-                current = "";
+                expression = "";
             }
             return;
         }
 
-        const value = btn.getAttribute("data-val");
-        current += value;
-        display.value = current;
+        if (value) {
+            expression += value;
+            display.value = expression;
+        }
     });
 });
